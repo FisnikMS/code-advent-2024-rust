@@ -1,0 +1,23 @@
+[[bin]]
+name = "day-one-part-one"
+path = "src/day-one/part-one.rs"
+
+[[bin]]
+name = "day-one-part-two"
+path = "src/day-one/part-two.rs"
+
+
+[[bin]]
+name = "day-two-part-one"
+path = "src/day-two/part-one.rs"
+
+[[bin]]
+name = "day-two-part-two"
+path = "src/day-two/part-two.rs"
+
+[package]
+name = "day-1"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

@@ -2,7 +2,7 @@ use std::{ fs, vec};
 mod helper;
 
 fn main() {
-    let content = fs::read_to_string("files/input.txt").expect("Should have been able to read the file");
+    let content = fs::read_to_string("files/day-2.txt").expect("Should have been able to read the file");
     let mut left_vec: Vec<i32> = vec![];
     let mut right_vec: Vec<i32> = vec![];
 
@@ -19,19 +19,12 @@ fn main() {
     if left_vec.len() != right_vec.len() {
         panic!("argument size does not match");
     }
-    
-    let mut index: usize = 0; 
-    let rounds: usize = left_vec.len();
-    let mut total_distance: i32 = 0;
 
-    while index < rounds {
-        let first_min = helper::drop_smallest_entry(&mut left_vec);
-        let second_min = helper::drop_smallest_entry(&mut right_vec);
-        total_distance += (first_min - second_min).abs();
-        index = index + 1;
-    }
+    let mut total_distance: i32 = 0;
+    left_vec.iter().for_each(|num| {
+        total_distance += num * helper::count_occurrences(&right_vec, *num); 
+    });
 
     println!("The total distance is: {}", total_distance);
 
 }
-
